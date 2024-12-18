@@ -1,10 +1,16 @@
 #pragma once
 
 #include "ofMain.h"
+#include "AudioReader.hpp"
+#include "Renderer.hpp"
 
 class ofApp : public ofBaseApp{
 
 	public:
+    
+    AudioReader reader;
+    Renderer renderer;
+    
 		void setup();
 		void update();
 		void draw();
