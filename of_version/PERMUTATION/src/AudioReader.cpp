@@ -80,6 +80,22 @@ std::vector<float> & AudioReader::getChannelData(int channel){
     return channels[channel];
 }
 
+std::vector<float> AudioReader::getData(){
+    
+    std::vector<float> outData;
+    
+    for(int i = 0; i<channels.size(); i++){
+        for(int j = 0; j<channels[i].size(); j++){
+            
+            outData.push_back(channels[i][j]);
+            
+        }
+    }
+    
+    return outData;
+    
+}
+
 void AudioReader::printDevices(){
     
     

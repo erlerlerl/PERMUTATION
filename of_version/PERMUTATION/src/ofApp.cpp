@@ -6,7 +6,9 @@
 void ofApp::setup(){
 
     reader.setup(0, 48000, 2, 256);
-    renderer.setup();
+    renderer.setup(800);
+    
+    ofSetFullscreen(true);
     
     
 }
@@ -15,12 +17,15 @@ void ofApp::setup(){
 void ofApp::update(){
 
     reader.update();
+    renderer.updateData(reader.getData());
+    renderer.update();
     
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    
+    ofBackground(0, 0, 0);
     renderer.draw();
     
 }

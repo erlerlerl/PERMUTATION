@@ -34,6 +34,8 @@ public:
     
     std::vector<float> & getChannelData(int channel);
     
+    std::vector<float> getData();
+    
     void printDevices();
     
     
