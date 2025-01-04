@@ -15,7 +15,6 @@ void Renderer::setup(int size, bool color, AudioReader & reader, float brightnes
     this->color = color;
     this->reader = & reader;
     this->brightness = brightness;
-    //still needs work -> for now generates random values. Will need to read data from AudioReader
     
     data.resize(width*height);
     
@@ -63,11 +62,7 @@ void Renderer::update(){
                 pixels.setColor(j, i, ofColor(pixelValue));
             }
         }
-        
     }
-    
-    
-    
     
     texture.loadData(pixels);
     
@@ -81,7 +76,6 @@ void Renderer::draw(){
 
 void Renderer::updateData(){
     
-    //update data based on reader->getData()
     if(this->color){
         
         std::vector<float> r = reader->getChannelData(0);
@@ -131,12 +125,6 @@ std::vector<float> Renderer::adjustAudioData(float r, float g, float b){
     out[0] = ofClamp(ofMap(out[0], 0, 3, 0, 255)*brightness, 0, 255);
     out[1] = ofClamp(ofMap(out[1], 0, 3, 0, 255)*brightness, 0, 255);
     out[2] = ofClamp(ofMap(out[2], 0, 3, 0, 255)*brightness, 0, 255);
-    
-    
-    /*out[0] = ofMap(r, -1, 1, 0, 255);
-    out[1] = ofMap(g, -1, 1, 0, 255);
-    out[2] = ofMap(b, -1, 1, 0, 255);*/
-    
     
     return out;
     

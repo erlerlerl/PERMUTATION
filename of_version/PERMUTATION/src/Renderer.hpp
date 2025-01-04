@@ -26,8 +26,8 @@ public:
     ofTexture texture;
     std::vector<float> data;
     std::vector<float> dataG;
-    std::vector<float> dataB;// 1D array of values (400x400)
-    int width = 512;         // Image width
+    std::vector<float> dataB;
+    int width = 512;
     int height = 512;
     bool color = false;
     float brightness = 1.0;

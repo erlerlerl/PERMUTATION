@@ -5,8 +5,19 @@
 
 void ofApp::setup(){
 
-    reader.setup(0, 48000, 3, 512);
-    renderer.setup(512, true, reader, 2);
+    int deviceID = 0;
+    int sampleRate = 48000;
+    int numInputChannels = 3; //colorMode needs 3 channels, grayscale needs 1
+    int bufferSize = 512;
+    
+    int frameSize = 512;
+    bool colorMode = true; //mind the numInputChannels
+    float brightness = 2.0;
+    
+    
+    
+    reader.setup(deviceID, sampleRate, numInputChannels, bufferSize);
+    renderer.setup(frameSize, colorMode, reader, brightness);
     
     ofSetFullscreen(true);
     
@@ -19,8 +30,6 @@ void ofApp::update(){
     reader.update();
     renderer.updateData();
     renderer.update();
-    
-    ofLog()<<renderer.adjustAudioData(1, 0, 0)[2];
     
 }
 
