@@ -10,13 +10,14 @@
 
 #include <stdio.h>
 #include <ofMain.h>
+#include <algorithm>
 #include <AudioReader.hpp>
 
 class Renderer{
     
 public:
     
-    void setup(int size, bool color, AudioReader & reader);
+    void setup(int size, bool color, AudioReader & reader, float brightness);
     void update();
     void draw();
     
@@ -29,9 +30,14 @@ public:
     int width = 512;         // Image width
     int height = 512;
     bool color = false;
+    float brightness = 1.0;
     AudioReader * reader;
     
-
+    std::vector<float> adjustAudioData(float r, float g, float b);
+    
+private:
+    
+    
     
 };
 

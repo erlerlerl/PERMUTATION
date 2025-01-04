@@ -6,7 +6,7 @@
 void ofApp::setup(){
 
     reader.setup(0, 48000, 3, 512);
-    renderer.setup(512, false, reader);
+    renderer.setup(512, true, reader, 2);
     
     ofSetFullscreen(true);
     
@@ -19,6 +19,8 @@ void ofApp::update(){
     reader.update();
     renderer.updateData();
     renderer.update();
+    
+    ofLog()<<renderer.adjustAudioData(1, 0, 0)[2];
     
 }
 
