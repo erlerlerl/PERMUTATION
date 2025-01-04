@@ -74,6 +74,8 @@ void AudioReader::audioIn(ofSoundBuffer &input){
         
     }
     
+    
+    
 }
 
 std::vector<float> & AudioReader::getChannelData(int channel){

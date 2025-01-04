@@ -16,16 +16,20 @@ class Renderer{
     
 public:
     
-    void setup(int size);
+    void setup(int size, bool color, AudioReader & reader);
     void update();
     void draw();
     
-    void updateData(std::vector<float> readerData);
+    void updateData();
     
     ofTexture texture;
-    std::vector<float> data; // 1D array of values (400x400)
-    int width = 400;         // Image width
-    int height = 400;
+    std::vector<float> data;
+    std::vector<float> dataG;
+    std::vector<float> dataB;// 1D array of values (400x400)
+    int width = 512;         // Image width
+    int height = 512;
+    bool color = false;
+    AudioReader * reader;
     
 
     

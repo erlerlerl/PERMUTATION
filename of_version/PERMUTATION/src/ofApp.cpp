@@ -5,8 +5,8 @@
 
 void ofApp::setup(){
 
-    reader.setup(0, 48000, 2, 256);
-    renderer.setup(800);
+    reader.setup(0, 48000, 3, 512);
+    renderer.setup(512, false, reader);
     
     ofSetFullscreen(true);
     
@@ -17,7 +17,7 @@ void ofApp::setup(){
 void ofApp::update(){
 
     reader.update();
-    renderer.updateData(reader.getData());
+    renderer.updateData();
     renderer.update();
     
 }
