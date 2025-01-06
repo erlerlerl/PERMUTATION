@@ -64,15 +64,23 @@ void AudioReader::audioIn(ofSoundBuffer &input){
     
     std::lock_guard<std::mutex> lock(audioMutex);
     
+    
+    data = input.getBuffer();
+    
+    
     for(size_t i = 0; i < input.getNumFrames(); i++){
+        
+        
+        
         
         for(int j = 0; j < channels.size(); j++){
             
             channels[j][i] = input.getSample(i,j);
-            
         }
         
     }
+    
+    
     
     
     
@@ -94,7 +102,9 @@ std::vector<float> AudioReader::getData(){
         }
     }
     
-    return outData;
+    //ofLog()<<data.size();
+    
+    return data;
     
 }
 

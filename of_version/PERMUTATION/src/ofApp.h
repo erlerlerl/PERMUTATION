@@ -2,14 +2,15 @@
 
 #include "ofMain.h"
 #include "AudioReader.hpp"
-#include "Renderer.hpp"
+#include "ColorRenderer.hpp"
+#include "GrayRenderer.hpp"
 
 class ofApp : public ofBaseApp{
 
 	public:
     
     AudioReader reader;
-    Renderer renderer;
+    ColorRenderer cRenderer;
     
 		void setup();
 		void update();

@@ -11,13 +11,13 @@ void ofApp::setup(){
     int bufferSize = 512;
     
     int frameSize = 512;
-    bool colorMode = true; //mind the numInputChannels
+    bool colorMode = false; //mind the numInputChannels
     float brightness = 2.0;
     
     
     
     reader.setup(deviceID, sampleRate, numInputChannels, bufferSize);
-    renderer.setup(frameSize, colorMode, reader, brightness);
+    cRenderer.setup(frameSize, reader, brightness);
     
     ofSetFullscreen(true);
     
@@ -28,8 +28,8 @@ void ofApp::setup(){
 void ofApp::update(){
 
     reader.update();
-    renderer.updateData();
-    renderer.update();
+    cRenderer.updateData();
+    cRenderer.update();
     
 }
 
@@ -37,7 +37,7 @@ void ofApp::update(){
 void ofApp::draw(){
     
     ofBackground(0, 0, 0);
-    renderer.draw();
+    cRenderer.draw();
     
 }
 

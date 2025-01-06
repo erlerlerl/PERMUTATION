@@ -22,6 +22,8 @@ public:
     std::vector<std::vector<float>> channels;
     std::mutex audioMutex;
     
+    std::vector<float> data;
+    
     AudioReader();
     
     void setup(int deviceID, int sampleRate, int numInputChannels, int bufferSize);
