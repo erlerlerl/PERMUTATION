@@ -7,9 +7,12 @@ void ColorRenderer::setup(int size, float brightness) {
     this->brightness = brightness;
     
     data.resize(width * height * 3);
+
 }
 
 void ColorRenderer::update() {
+    
+    ofLog()<<"size of one row: "<<data.size()/height;
     
     ofPixels pixels;
     pixels.allocate(width, height, OF_PIXELS_RGB);
@@ -21,8 +24,8 @@ void ColorRenderer::update() {
 
             std::vector<float> c = adjustAudioData(data[idx], data[idx+1], data[idx+2]);
 
-            //pixels.setColor(j, i, ofColor(c[0], c[1], c[2]));
-            pixels.setColor(j,i, ofColor(data[idx]*128,data[idx+1]*128,data[idx+2]*128));
+            pixels.setColor(j, i, ofColor(c[0], c[1], c[2]));
+            //pixels.setColor(j,i, ofColor(data[idx]*128,data[idx+1]*128,data[idx+2]*128));
         }
     }
 
@@ -33,6 +36,8 @@ void ColorRenderer::update() {
 
 
 std::vector<float> ColorRenderer::adjustAudioData(float r, float g, float b) {
+    
+    
     std::vector<float> out(3);
     if (r >= 0) out[0] += r;
     else { out[1] -= r; out[2] -= r; }

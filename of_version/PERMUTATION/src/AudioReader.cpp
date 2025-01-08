@@ -69,6 +69,8 @@ void AudioReader::audioIn(ofSoundBuffer &input){
     
     data = input.getBuffer();
     
+    ofLog()<<"actual audioBufferSize: "<<data.size();
+    
     
     for(size_t i = 0; i < input.getNumFrames(); i++){
         
