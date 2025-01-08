@@ -16,8 +16,10 @@ void ofApp::setup(){
     
     
     
-    reader.setup(deviceID, sampleRate, numInputChannels, bufferSize);
-    cRenderer.setup(frameSize, reader, brightness);
+    cRenderer.setup(frameSize, brightness);
+    
+    reader.setup(deviceID, sampleRate, numInputChannels, bufferSize, cRenderer);
+    
     
     ofSetFullscreen(true);
     
@@ -28,7 +30,7 @@ void ofApp::setup(){
 void ofApp::update(){
 
     reader.update();
-    cRenderer.updateData();
+    //cRenderer.updateData();
     cRenderer.update();
     
 }

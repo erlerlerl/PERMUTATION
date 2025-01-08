@@ -1,9 +1,9 @@
 #include "GrayRenderer.hpp"
 
-void GrayRenderer::setup(int size, AudioReader &reader, float brightness) {
+void GrayRenderer::setup(int size, float brightness) {
     this->width = size;
     this->height = size;
-    this->reader = &reader;
+    //this->reader = &reader;
     this->brightness = brightness;
     
     data.resize(width * height);

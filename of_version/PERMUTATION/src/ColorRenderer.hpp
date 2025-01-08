@@ -5,7 +5,7 @@
 
 class ColorRenderer : public Renderer {
 public:
-    void setup(int size, AudioReader &reader, float brightness) override;
+    void setup(int size, float brightness) override;
     void update() override;
 
 private:
