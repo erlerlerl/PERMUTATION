@@ -9,7 +9,9 @@
 
 AudioReader::AudioReader(){};
 
-void AudioReader::setup(int deviceID, int sampleRate, int numInputChannels, int bufferSize){
+void AudioReader::setup(int deviceID, int sampleRate, int numInputChannels, int bufferSize, Renderer & renderer){
+    
+    this->renderer = &renderer;
     
     auto devices = stream.getDeviceList();
     
@@ -82,7 +84,7 @@ void AudioReader::audioIn(ofSoundBuffer &input){
     
     
     
-    
+    sendData(data);
     
 }
 
@@ -105,6 +107,12 @@ std::vector<float> AudioReader::getData(){
     //ofLog()<<data.size();
     
     return data;
+    
+}
+
+void AudioReader::sendData(std::vector<float> data){
+    
+    this->renderer->updateData(data);
     
 }
 

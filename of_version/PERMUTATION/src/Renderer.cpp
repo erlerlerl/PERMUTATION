@@ -11,12 +11,12 @@ void Renderer::draw() {
     texture.draw((ofGetWidth() - width) / 2, (ofGetHeight() - height) / 2);
 }
 
-void Renderer::updateData(){
+void Renderer::updateData(std::vector<float> & audioData){
     
     
-    std::vector<float> readerData = reader->getData();
+    //std::vector<float> readerData = reader->getData();
     
-    int size = readerData.size();
+    int size = audioData.size();
     
 //    ofLog()<<"reader Data size: " << size;
     
@@ -26,7 +26,7 @@ void Renderer::updateData(){
     
     //ofLog() << "render Data size after erase: " << data.size();
     
-    data.insert(data.end(), readerData.begin(), readerData.end());
+    data.insert(data.end(), audioData.begin(), audioData.end());
     
     //ofLog() << "render Data size after insert: "<<data.size();
     
