@@ -4,13 +4,15 @@
 #include "AudioReader.hpp"
 #include "ColorRenderer.hpp"
 #include "GrayRenderer.hpp"
+#include "RowRenderer.hpp"
 
 class ofApp : public ofBaseApp{
 
 	public:
     
     AudioReader reader;
-    ColorRenderer cRenderer;
+    //ColorRenderer cRenderer;
+    RowRenderer cRenderer;
     
 		void setup();
 		void update();

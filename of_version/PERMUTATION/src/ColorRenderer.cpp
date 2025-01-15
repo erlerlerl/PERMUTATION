@@ -12,7 +12,7 @@ void ColorRenderer::setup(int size, float brightness) {
 
 void ColorRenderer::update() {
     
-    ofLog()<<"size of one row: "<<data.size()/height;
+    //ofLog()<<"size of one row: "<<data.size()/height;
     
     ofPixels pixels;
     pixels.allocate(width, height, OF_PIXELS_RGB);
@@ -51,4 +51,17 @@ std::vector<float> ColorRenderer::adjustAudioData(float r, float g, float b) {
     out[2] = ofClamp(ofMap(out[2], 0, 3, 0, 255) * brightness, 0, 255);
 
     return out;
+    
+    //rot: rgb: 255 0 0 cmy: 0 / 255 / 255
+    
+    //audiodaten >0 rgb; <0 cmy
+    //rot kanal >0 -> rot; <0 -> cyan
+    //ch1 -> rot kanal -> r-werte
+    //ch2 -> grün Kanal -> g-werte
+    //ch3 -> blau Kanal -> b-werte
+    
+    //
+    
+    //-1,1 audio -> 0, 255 video.
+    // 0 -> video 127
 }

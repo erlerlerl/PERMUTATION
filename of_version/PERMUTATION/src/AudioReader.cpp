@@ -69,7 +69,7 @@ void AudioReader::audioIn(ofSoundBuffer &input){
     
     data = input.getBuffer();
     
-    ofLog()<<"actual audioBufferSize: "<<data.size();
+    //ofLog()<<"actual audioBufferSize: "<<data.size();
     
     
     for(size_t i = 0; i < input.getNumFrames(); i++){
@@ -113,6 +113,7 @@ std::vector<float> AudioReader::getData(){
 }
 
 void AudioReader::sendData(std::vector<float> data){
+    
     
     this->renderer->updateData(data);
     
