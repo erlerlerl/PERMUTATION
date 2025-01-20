@@ -8,7 +8,7 @@ class Renderer {
 public:
     virtual void setup(int size, float brightness) = 0;
     virtual void update() = 0;
-    virtual void draw();
+    virtual void draw(float scale);
     
     virtual void updateData(std::vector<float> & audioData);
     

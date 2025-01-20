@@ -8,11 +8,13 @@ void ofApp::setup(){
     int deviceID = 0;
     int sampleRate = 48000;
     int numInputChannels = 3; //colorMode needs 3 channels, grayscale needs 1
-    int bufferSize = 480;
+    int bufferSize = 512;
     
-    int frameSize = 480;
+    int frameSize = 512;
+    scale = 1.5;
+    
     bool colorMode = false; //mind the numInputChannels
-    float brightness = 2.0;
+    float brightness = 1.0;
     
     
     
@@ -22,8 +24,8 @@ void ofApp::setup(){
     
     reader.setup(deviceID, sampleRate, numInputChannels, bufferSize, cRenderer);
     
-    ofSetWindowShape(512, 512);
-    ofSetFrameRate(30);
+    ofSetWindowShape(frameSize*scale, frameSize*scale);
+    //ofSetFrameRate(30);
     //ofSetFullscreen(true);
     
     
@@ -42,7 +44,7 @@ void ofApp::update(){
 void ofApp::draw(){
     
     ofBackground(0, 0, 0);
-    cRenderer.draw();
+    cRenderer.draw(scale);
     
 }
 

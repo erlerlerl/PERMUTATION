@@ -11,8 +11,11 @@ class ofApp : public ofBaseApp{
 	public:
     
     AudioReader reader;
-    //ColorRenderer cRenderer;
-    RowRenderer cRenderer;
+    ColorRenderer cRenderer;
+    //RowRenderer cRenderer;
+    //GrayRenderer cRenderer;
+    
+    float scale;
     
 		void setup();
 		void update();

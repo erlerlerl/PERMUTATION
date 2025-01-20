@@ -7,8 +7,8 @@
 
 #include "Renderer.hpp"
 
-void Renderer::draw() {
-    texture.draw((ofGetWidth() - width) / 2, (ofGetHeight() - height) / 2);
+void Renderer::draw(float scale) {
+    texture.draw((ofGetWidth() - (width*scale)) / 2, (ofGetHeight() - (height*scale)) / 2, width*scale, height*scale);
 }
 
 void Renderer::updateData(std::vector<float> & audioData){

@@ -40,15 +40,15 @@ std::vector<float> ColorRenderer::adjustAudioData(float r, float g, float b) {
     
     std::vector<float> out(3);
     if (r >= 0) out[0] += r;
-    else { out[1] -= r; out[2] -= r; }
+    else { out[1] -= r/2; out[2] -= r/2; }
     if (g >= 0) out[1] += g;
-    else { out[0] -= g; out[2] -= g; }
+    else { out[0] -= g/2; out[2] -= g/2; }
     if (b >= 0) out[2] += b;
-    else { out[0] -= b; out[1] -= b; }
+    else { out[0] -= b/2; out[1] -= b/2; }
 
-    out[0] = ofClamp(ofMap(out[0], 0, 3, 0, 255) * brightness, 0, 255);
-    out[1] = ofClamp(ofMap(out[1], 0, 3, 0, 255) * brightness, 0, 255);
-    out[2] = ofClamp(ofMap(out[2], 0, 3, 0, 255) * brightness, 0, 255);
+    out[0] = ofClamp(ofMap(out[0], 0, 1, 0, 255) * brightness, 0, 255);
+    out[1] = ofClamp(ofMap(out[1], 0, 1, 0, 255) * brightness, 0, 255);
+    out[2] = ofClamp(ofMap(out[2], 0, 1, 0, 255) * brightness, 0, 255);
 
     return out;
     
