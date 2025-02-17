@@ -10,23 +10,27 @@ void ofApp::setup(){
     int numInputChannels = 3; //colorMode needs 3 channels, grayscale needs 1
     int bufferSize = 512;
     
+    int frameRate = 60;
     int frameSize = 512;
     scale = 1.5;
+    bool fullscreen = true;
     
     bool colorMode = false; //mind the numInputChannels
     float brightness = 1.0;
     
+    capture = false;
     
     
     
+
     
     cRenderer.setup(frameSize, brightness);
     
     reader.setup(deviceID, sampleRate, numInputChannels, bufferSize, cRenderer);
     
     ofSetWindowShape(frameSize*scale, frameSize*scale);
-    //ofSetFrameRate(30);
-    //ofSetFullscreen(true);
+    ofSetFrameRate(frameRate);
+    ofSetFullscreen(fullscreen);
     
     
 }
@@ -37,6 +41,17 @@ void ofApp::update(){
     reader.update();
     //cRenderer.updateData();
     cRenderer.update();
+    
+    if(capture){
+        
+        static int frameNum = 0;
+            ofImage img;
+            img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+            img.save("frames/frame_" + ofToString(frameNum, 4, '0') + ".png");
+            frameNum++;
+    }
+    
+    
     
 }
 

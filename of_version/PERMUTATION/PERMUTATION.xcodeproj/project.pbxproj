@@ -263,6 +263,7 @@
 		F39445132D2C8F05009A95AE /* ColorRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ColorRenderer.hpp; sourceTree = "<group>"; };
 		F39445152D2C8F75009A95AE /* GrayRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GrayRenderer.cpp; sourceTree = "<group>"; };
 		F39445162D2C8F75009A95AE /* GrayRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GrayRenderer.hpp; sourceTree = "<group>"; };
+		F3AF3C562D58C50000F2A475 /* ofxVideoRecorder */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ofxVideoRecorder; path = ../../../../../../Documents/OF_ROOT/addons/ofxVideoRecorder; sourceTree = "<group>"; };
 		FC23F2D2A924AAC9CBACB2A0 /* OscHostEndianness.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscHostEndianness.h; path = ../../../../../../Documents/OF_ROOT/addons/ofxOsc/libs/oscpack/src/osc/OscHostEndianness.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -316,6 +317,7 @@
 		6948EE371B920CB800B5AC1A /* local_addons */ = {
 			isa = PBXGroup;
 			children = (
+				F3AF3C562D58C50000F2A475 /* ofxVideoRecorder */,
 			);
 			name = local_addons;
 			sourceTree = "<group>";

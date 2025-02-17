@@ -16,6 +16,7 @@ class ofApp : public ofBaseApp{
     //GrayRenderer cRenderer;
     
     float scale;
+    bool capture;
     
 		void setup();
 		void update();
