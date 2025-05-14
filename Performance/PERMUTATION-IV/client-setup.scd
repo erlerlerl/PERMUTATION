@@ -1,7 +1,7 @@
 // CLIENT
 (
 o = ServerOptions.new;
-o.maxLogins = 2;
+// o.maxLogins = 2;
 o.protocol_(\tcp);
 t = Server.remote(\remote, NetAddr("10.0.1.52", 57110), o); // SET TO CORRECT ADDRESS AND PORT
 t.addr.connect;
