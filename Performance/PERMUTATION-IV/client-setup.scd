@@ -3,7 +3,7 @@
 o = ServerOptions.new;
 // o.maxLogins = 2;
 o.protocol_(\tcp);
-t = Server.remote(\remote, NetAddr("169.254.40.0", 57110), o); // SET TO CORRECT ADDRESS AND PORT
+t = Server.remote(\remote, NetAddr("169.254.28.93", 57110), o); // SET TO CORRECT ADDRESS AND PORT
 t.addr.connect;
 t.startAliveThread(0);
 t.doWhenBooted({"remote tcp server started".postln; t.notify; t.initTree});

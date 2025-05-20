@@ -22,8 +22,9 @@
   var snd,
     start = 90000,
     end = BufFrames.kr(bufnum) * (3/4),
-    rate = (1/1.5);
+    rate = (1/0.5);
 
+  snd = PlayBuf.ar(3, bufnum, (~img_w/~blc) / rate * LFPulse.ar(1/10.8/2).linlin(0,1,-1,1).lag, startPos: 90000, trigger: Impulse.ar(1/10.8));
   snd = BufRd.ar(3, bufnum, Phasor.ar(0, BufRateScale.kr(bufnum) * (~img_w/~blc) * rate, start, end), loop, 1);
   // snd = BufRd.ar(3, bufnum, LFSaw.ar((1/BufDur.kr(bufnum)) * (~img_w/~blc) * rate, 1).range(0, BufFrames.kr(bufnum)), loop, 1);
   // snd = BufRd.ar(3, bufnum, LFSaw.ar((1/BufDur.kr(bufnum)) * (~img_w/~blc) * rate, 1).range(start, end), loop, 1);
